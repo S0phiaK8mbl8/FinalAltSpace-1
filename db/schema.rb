@@ -74,20 +74,15 @@ ActiveRecord::Schema.define(version: 20160310052810) do
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type"
 
-  create_table "reservations", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "requestee_id"
-    t.integer  "space_id"
-    t.string   "state"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "spaces", force: :cascade do |t|
     t.string   "name"
     t.string   "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "wreck_or_reuse"
+    t.string   "fee_or_free"
+    t.string   "practice_or_perform"
+    t.integer  "sq_footage"
   end
 
   create_table "users", force: :cascade do |t|
@@ -104,6 +99,9 @@ ActiveRecord::Schema.define(version: 20160310052810) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "location"
+    t.string   "host_or_artist"
+    t.text     "bio"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

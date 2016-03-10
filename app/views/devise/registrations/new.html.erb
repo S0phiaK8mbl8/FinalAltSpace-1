@@ -8,6 +8,9 @@
     <%= f.input :email, required: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
+    <%= f.input :bio %>
+    <%= f.input :host_or_artist %>
+    <%= f.input :location %>
   </div>
 
   <div class="form-actions">
